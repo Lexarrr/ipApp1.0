@@ -19,7 +19,7 @@ public class Student extends User{
     private Long id;
 
     @OneToMany
-    @JoinColumn(nullable = false, name = "id")
+    @JoinColumn(nullable = false, name = "userId")
     private User userId;
 
     private Long courseId;
