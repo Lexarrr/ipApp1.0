@@ -1,4 +1,4 @@
 package org.ipapp.ipapp.persistence.model;
 
-public class Student extends User{
+public class Assigment {
 }
