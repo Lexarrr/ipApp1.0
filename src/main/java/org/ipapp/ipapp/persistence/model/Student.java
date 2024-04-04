@@ -5,6 +5,7 @@ import lombok.Data;
 
 
 import java.util.Collection;
+import java.util.HashSet;
 
 @Entity
 @Data
@@ -25,13 +26,13 @@ public class Student extends User{
     @JoinColumn(nullable = false, name = "id")
     private User user;
 
-    @ManyToOne(targetEntity = User.class, fetch = FetchType.EAGER)
+    @ManyToMany(targetEntity = User.class, fetch = FetchType.EAGER, mappedBy = "id")
     @JoinColumn(nullable = false, name = "id")
-    private Course course;
+    private HashSet<Course> courses;
 
 
-    @ManyToOne(targetEntity = User.class, fetch = FetchType.EAGER)
+    @ManyToMany(targetEntity = User.class, fetch = FetchType.EAGER, mappedBy = "id")
     @JoinColumn(nullable = false, name = "id")
-    private Group group;
+    private HashSet<Group> groups;
 
 }
