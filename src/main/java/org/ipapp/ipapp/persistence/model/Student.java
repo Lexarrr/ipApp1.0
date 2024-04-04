@@ -3,6 +3,9 @@ package org.ipapp.ipapp.persistence.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+
+import java.util.Collection;
+
 @Entity
 @Data
 public class Student extends User{
@@ -18,11 +21,17 @@ public class Student extends User{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @OneToMany
-    @JoinColumn(nullable = false, name = "userId")
-    private User userId;
+    @ManyToOne(targetEntity = User.class, fetch = FetchType.EAGER)
+    @JoinColumn(nullable = false, name = "id")
+    private User user;
 
-    private Long courseId;
+    @ManyToOne(targetEntity = User.class, fetch = FetchType.EAGER)
+    @JoinColumn(nullable = false, name = "id")
+    private Course course;
 
+
+    @ManyToOne(targetEntity = User.class, fetch = FetchType.EAGER)
+    @JoinColumn(nullable = false, name = "id")
+    private Group group;
 
 }
