@@ -1,10 +1,10 @@
 package org.ipapp.ipapp.persistence.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Data;
 
+@Entity
+@Data
 public class Course {
 
     @Id

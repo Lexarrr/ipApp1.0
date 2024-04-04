@@ -11,24 +11,24 @@ import java.util.HashSet;
 @Data
 public class Student extends User{
 
-//    private User id;
-//
-//    private Course id;
-//
-//    private Group id;
-
     @Id
     @Column(name = "id", unique = true, nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(name = "name")
+    private String firstName;
+
+    @Column(name = "email")
+    private String email;
+
     @ManyToOne(targetEntity = User.class, fetch = FetchType.EAGER)
     @JoinColumn(nullable = false, name = "id")
     private User user;
 
-    @ManyToMany(targetEntity = User.class, fetch = FetchType.EAGER, mappedBy = "id")
-    @JoinColumn(nullable = false, name = "id")
-    private HashSet<Course> courses;
+//    @ManyToMany(targetEntity = User.class, fetch = FetchType.EAGER, mappedBy = "id")
+//    @JoinColumn(nullable = false, name = "id")
+//    private HashSet<Course> courses;
 
 
     @ManyToMany(targetEntity = User.class, fetch = FetchType.EAGER, mappedBy = "id")
